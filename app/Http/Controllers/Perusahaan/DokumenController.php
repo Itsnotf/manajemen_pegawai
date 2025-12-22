@@ -59,8 +59,8 @@ class DokumenController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('file')) {
-            $data['file'] = $request->file('file')->store('dokumen', 'public');
+        if ($request->hasFile('file_dokumen')) {
+            $data['file_dokumen'] = $request->file('file_dokumen')->store('dokumen', 'public');
         }
 
         $data['pegawai_id'] = $pegawaiId;
@@ -104,11 +104,11 @@ class DokumenController extends Controller
         $dokumen = Dokumen::findOrFail($dokumenId);
         $data = $request->validated();
 
-        if ($request->hasFile('file')) {
-            if ($dokumen->file && Storage::disk('public')->exists($dokumen->file)) {
-                Storage::disk('public')->delete($dokumen->file);
+        if ($request->hasFile('file_dokumen')) {
+            if ($dokumen->file_dokumen && Storage::disk('public')->exists($dokumen->file_dokumen)) {
+                Storage::disk('public')->delete($dokumen->file_dokumen);
             }
-            $data['file'] = $request->file('file')->store('dokumen', 'public');
+            $data['file_dokumen'] = $request->file('file_dokumen')->store('dokumen', 'public');
         }
 
         $dokumen->update($data);
@@ -126,8 +126,8 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($dokumenId);
         
-        if ($dokumen->file && Storage::disk('public')->exists($dokumen->file)) {
-            Storage::disk('public')->delete($dokumen->file);
+        if ($dokumen->file_dokumen && Storage::disk('public')->exists($dokumen->file_dokumen)) {
+            Storage::disk('public')->delete($dokumen->file_dokumen);
         }
         
         $dokumen->delete();

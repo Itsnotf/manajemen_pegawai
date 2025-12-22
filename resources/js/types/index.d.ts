@@ -127,7 +127,7 @@ export interface Dokumen {
     id: number;
     pegawai_id: string | number;
     nama_dokumen: string;
-    file: string | null;
+    file_dokumen: string | null;
     created_at: string;
     updated_at: string;
     pegawai? : Pegawai

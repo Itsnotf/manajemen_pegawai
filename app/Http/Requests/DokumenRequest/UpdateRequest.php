@@ -23,7 +23,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             "nama_dokumen" => "required|string|max:255",
-            "file" => "nullable|file|mimes:pdf,jpg,jpeg,png|max:2048",
+            "file_dokumen" => "nullable|file|mimes:pdf,jpg,jpeg,png|max:2048",
         ];
     }
 }

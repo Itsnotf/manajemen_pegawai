@@ -79,11 +79,11 @@ export default function DokumenCreatePage({ instansi, pegawai }: Props) {
 
                                     {/* File Dokumen */}
                                     <div className="grid gap-2">
-                                        <Label htmlFor="file">File Dokumen</Label>
+                                        <Label htmlFor="file_dokumen">File Dokumen</Label>
                                         <Input
-                                            id="file"
+                                            id="file_dokumen"
                                             type="file"
-                                            name="file"
+                                            name="file_dokumen"
                                             accept="file/*"
                                             required
                                             tabIndex={2}
@@ -94,7 +94,7 @@ export default function DokumenCreatePage({ instansi, pegawai }: Props) {
                                         <p className="text-xs text-gray-500">
                                             Format yang diperbolehkan: PDF, JPG, JPEG, PNG (Max 2MB)
                                         </p>
-                                        <InputError message={errors.file} />
+                                        <InputError message={errors.file_dokumen} />
                                     </div>
 
                                     {/* Tombol */}

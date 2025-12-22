@@ -79,12 +79,12 @@ export default function DokumenEditPage({ instansi, pegawai, dokumen }: Props) {
 
                                     {/* File Dokumen */}
                                     <div className="grid gap-2">
-                                        <Label htmlFor="file">File Dokumen</Label>
+                                        <Label htmlFor="file_dokumen">File Dokumen</Label>
                                         <div className="space-y-2">
                                             <p className="text-sm text-gray-600">File saat ini:</p>
                                             <Button variant="link" className="p-0">
                                                 <a
-                                                    href={`/storage/${dokumen.file}`}
+                                                    href={`/storage/${dokumen.file_dokumen}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="text-blue-600 hover:underline"
@@ -97,9 +97,9 @@ export default function DokumenEditPage({ instansi, pegawai, dokumen }: Props) {
                                             </p>
                                         </div>
                                         <Input
-                                            id="file"
+                                            id="file_dokumen"
                                             type="file"
-                                            name="file"
+                                            name="file_dokumen"
                                             accept="file/*"
                                             tabIndex={2}
                                             onChange={(e) => console.log(e.target.files?.[0])}
