@@ -66,6 +66,10 @@ return new class extends Migration
             $table->foreignId('instansi_id')->constrained('instansis')->cascadeOnDelete();
             $table->string('tempat_lahir')->nullable();
             $table->date('tanggal_lahir')->nullable();
+            $table->string('nama_lengkap')->nullable();
+            $table->string('status_pernikahan')->nullable();
+            $table->string('nik')->nullable();
+            $table->string('telepon')->nullable();
             $table->string('agama')->nullable();
             $table->string('jenis_kelamin')->nullable();
             $table->string('alamat')->nullable();
