@@ -120,7 +120,7 @@ export default function PegawaiDokumenPage({ instansi, dokumens, filters = {}, f
                                     <TableCell>{d.nama_dokumen}</TableCell>
                                     <TableCell>
                                         <Button variant="link">
-                                            <a href={`/storage/${d.file}`} target="_blank" rel="noopener noreferrer">
+                                            <a href={`/storage/${d.file_dokumen}`} target="_blank" rel="noopener noreferrer">
                                                 Link
                                             </a>
                                         </Button>
