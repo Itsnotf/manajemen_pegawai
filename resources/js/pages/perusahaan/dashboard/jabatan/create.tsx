@@ -48,7 +48,7 @@ export default function DevisiCreatePage({ instansi, devisis }: Props) {
             <Head title="Jabatan" />
             <Form
                 {...store.form(instansi.id)}
-                resetOnSuccess={['nama_devisi']}
+                resetOnSuccess={['nama_jabatan']}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
             >
@@ -74,15 +74,15 @@ export default function DevisiCreatePage({ instansi, devisis }: Props) {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="devisi_id">Divisi</Label>
+                                <Label htmlFor="divisi_id">Divisi</Label>
                                 <Select
-                                    name="devisi_id"
+                                    name="divisi_id"
                                     required
                                     value={selectedDevisi}
                                     onValueChange={(value) => setSelectedDevisi(value)}
                                 >
                                     <SelectTrigger>
-                                        <SelectValue placeholder="Select a Devisi" />
+                                        <SelectValue placeholder="Select a Divisi" />
                                     </SelectTrigger>
 
                                     <SelectContent>
@@ -93,7 +93,7 @@ export default function DevisiCreatePage({ instansi, devisis }: Props) {
                                         ))}
                                     </SelectContent>
                                 </Select>
-                                <InputError message={errors.devisi_id} />
+                                <InputError message={errors.divisi_id} />
                             </div>
 
 

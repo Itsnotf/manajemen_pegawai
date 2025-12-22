@@ -22,7 +22,7 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "devisi_id" => "required|exists:divisis,id",
+            "divisi_id" => "required|exists:divisis,id",
             "nama_jabatan" => "required|string|max:255",
         ];
     }

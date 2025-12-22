@@ -77,15 +77,15 @@ export default function DevisiCreatePage({ instansi, devisis, jabatan }: Props) 
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="devisi_id">Devisi</Label>
+                                <Label htmlFor="divisi_id">Divisi</Label>
                                 <Select
-                                    name="devisi_id"
+                                    name="divisi_id"
                                     required
                                     value={selectedDevisi}
                                     onValueChange={(value) => setSelectedDevisi(value)}
                                 >
                                     <SelectTrigger>
-                                        <SelectValue placeholder="Select a Devisi" />
+                                        <SelectValue placeholder="Select a Divisi" />
                                     </SelectTrigger>
 
                                     <SelectContent>
@@ -96,7 +96,7 @@ export default function DevisiCreatePage({ instansi, devisis, jabatan }: Props) 
                                         ))}
                                     </SelectContent>
                                 </Select>
-                                <InputError message={errors.devisi_id} />
+                                <InputError message={errors.divisi_id} />
                             </div>
 
 
