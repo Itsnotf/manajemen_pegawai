@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import DeleteButton from '@/components/delete-button-perusahaan';
 import { Edit2Icon, PlusCircle } from 'lucide-react';
-import { BreadcrumbItem, Jabatan, Perusahaan } from '@/types';
+import { BreadcrumbItem, Jabatan, Instansi } from '@/types';
 import { toast } from 'sonner';
 
 import {
@@ -19,7 +19,7 @@ import devisi from '@/routes/perusahaan/dashboard/devisi';
 
 
 interface Props {
-    perusahaan : Perusahaan;
+    instansi : Instansi;
     jabatans: {
         data: Jabatan[];
         links: any[];
@@ -34,15 +34,15 @@ interface Props {
 
 
 
-export default function DevisiPage({ perusahaan , jabatans, filters = {}, flash }: Props) {
+export default function DevisiPage({ instansi , jabatans, filters = {}, flash }: Props) {
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Jabatan',
-            href: `/dashboard-perusahaan/${perusahaan.id}/devisi`,
+            href: `/dashboard-perusahaan/${instansi.id}/jabatan`,
         },
     ];
     const [search, setSearch] = useState(filters.search || '');
@@ -57,11 +57,11 @@ export default function DevisiPage({ perusahaan , jabatans, filters = {}, flash 
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        router.get(`/dashboard-perusahaan/${perusahaan.id}/jabatan`, { search }, { preserveState: true });
+        router.get(`/dashboard-perusahaan/${instansi.id}/jabatan`, { search }, { preserveState: true });
     };
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Jabatan" />
 
             <div className="p-4 space-y-4">
@@ -77,7 +77,7 @@ export default function DevisiPage({ perusahaan , jabatans, filters = {}, flash 
                         <Button variant='outline' type="submit">Search</Button>
                     </form>
                     {hasAnyPermission(["jabatan create"]) && (
-                        <Link href={`/dashboard-perusahaan/${perusahaan.id}/jabatan/create`} >
+                        <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan/create`} >
                             <Button variant='default' className='group flex items-center'>
                                 <PlusCircle className='group-hover:rotate-90 transition-all' />
                                 Add jabatan
@@ -112,7 +112,7 @@ export default function DevisiPage({ perusahaan , jabatans, filters = {}, flash 
                                         {hasAnyPermission(["jabatan edit"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <Link href={`/dashboard-perusahaan/${perusahaan.id}/jabatan/${d.id}/edit`}>
+                                                    <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan/${d.id}/edit`}>
                                                         <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
                                                             <Edit2Icon />
                                                         </Button>
@@ -124,7 +124,7 @@ export default function DevisiPage({ perusahaan , jabatans, filters = {}, flash 
                                         {hasAnyPermission(["jabatan delete"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <DeleteButton perusahaanId={perusahaan.id} id={d.id} featured='jabatan' />
+                                                    <DeleteButton perusahaanId={instansi.id} id={d.id} featured='jabatan' />
                                                 </TooltipTrigger>
                                                 <TooltipContent>Delete</TooltipContent>
                                             </Tooltip>

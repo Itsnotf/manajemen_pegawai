@@ -24,7 +24,7 @@ class PribadiController extends Controller
         return Inertia::render('perusahaan/dashboard/pegawai/pribadi/index', [
             'pegawai' => $pegawai,
             'pribadi' => $pribadi,
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
         ]);
     }
 

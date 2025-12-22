@@ -1,13 +1,13 @@
 import AppLayout from '@/layouts/app-layout-perusahaan';
 import { Head, Link } from '@inertiajs/react';
-import { BreadcrumbItem, Perusahaan, Pegawai, Devisi } from '@/types';
+import { BreadcrumbItem, Instansi, Pegawai, Divisi } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, Building2, Briefcase, TrendingUp } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 
 interface Props {
-    perusahaan: Perusahaan;
+    instansi: Instansi;
     statistics: {
         totalPegawai: number;
         totalDevisi: number;
@@ -16,11 +16,11 @@ interface Props {
     pegawaiByType: Array<{ tipe_pegawai: string; count: number }>;
     pegawaiByDevisi: Array<{ devisi_name: string; count: number }>;
     recentPegawai: Pegawai[];
-    devisiList: (Devisi & { jabatan_count: number })[];
+    devisiList: (Divisi & { jabatan_count: number })[];
 }
 
 export default function DashboardPage({
-    perusahaan,
+    instansi,
     statistics,
     pegawaiByType,
     pegawaiByDevisi,
@@ -34,7 +34,7 @@ export default function DashboardPage({
         },
         {
             title: 'Dashboard Perusahaan',
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
     ];
 
@@ -64,21 +64,21 @@ export default function DashboardPage({
     );
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
 
             <div className="p-4 space-y-6">
                 {/* Header */}
                 <div className="flex justify-between items-start">
                     <div>
-                        <h1 className="text-3xl font-bold">{perusahaan.nama_perusahaan}</h1>
-                        <p className="text-gray-500 mt-1">{perusahaan.alamat_perusahaan}</p>
+                        <h1 className="text-3xl font-bold">{instansi.nama_instansi}</h1>
+                        <p className="text-gray-500 mt-1">{instansi.alamat_instansi}</p>
                     </div>
                     <div className="text-right">
                         <p className="text-sm text-gray-500">Email:</p>
-                        <p className="font-medium">{perusahaan.email}</p>
+                        <p className="font-medium">{instansi.email}</p>
                         <p className="text-sm text-gray-500 mt-2">Telepon:</p>
-                        <p className="font-medium">{perusahaan.telepon}</p>
+                        <p className="font-medium">{instansi.telepon}</p>
                     </div>
                 </div>
 
@@ -199,7 +199,7 @@ export default function DashboardPage({
                                         <p className="text-sm text-gray-500 mt-2">
                                             Jabatan: {devisi.jabatan_count}
                                         </p>
-                                        <Link href={`/dashboard-perusahaan/${perusahaan.id}/devisi`}>
+                                        <Link href={`/dashboard-perusahaan/${instansi.id}/divisi`}>
                                             <Button variant="outline" size="sm" className="mt-3 w-full">
                                                 Lihat Detail
                                             </Button>

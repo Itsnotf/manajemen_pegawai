@@ -20,16 +20,16 @@ export default function PegawaiPribadiPage({ pegawai, pribadi }: Props) {
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: pegawai.perusahaan?.nama_perusahaan ?? "Perusahaan",
-            href: `/dashboard-perusahaan/${pegawai.perusahaan?.id}`,
+            title: pegawai.instansi?.nama_instansi ?? "Instansi",
+            href: `/dashboard-perusahaan/${pegawai.instansi_id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${pegawai.perusahaan?.id}/pegawai`,
+            href: `/dashboard-perusahaan/${pegawai.instansi_id}/pegawai`,
         },
         {
             title: 'Pribadi',
-            href: `/dashboard-perusahaan/${pegawai.perusahaan?.id}/pegawai/${pegawai.id}/pribadi`,
+            href: `/dashboard-perusahaan/${pegawai.instansi_id}/pegawai/${pegawai.id}/pribadi`,
         },
     ];
 
@@ -37,13 +37,13 @@ export default function PegawaiPribadiPage({ pegawai, pribadi }: Props) {
     const [status, setStatus] = useState(pribadi?.status_pernikahan || "")
 
     return (
-        <AppLayout perusahaanId={pegawai.perusahaan_id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={pegawai.instansi_id} breadcrumbs={breadcrumbs}>
             <Head title="Data Pribadi Pegawai" />
 
             <div className="p-6">
                 <Form
                     method={isEdit ? "put" : "post"}
-                    action={`/dashboard-perusahaan/${pegawai.perusahaan_id}/pegawai/${pegawai.id}/pribadi`}
+                    action={`/dashboard-perusahaan/${pegawai.instansi_id}/pegawai/${pegawai.id}/pribadi`}
                     className="space-y-8"
                 >
                     {({ processing, errors }) => (
@@ -189,7 +189,7 @@ export default function PegawaiPribadiPage({ pegawai, pribadi }: Props) {
                                     )}
                                 </Button>
 
-                                <Link href={`/dashboard-perusahaan/${pegawai.perusahaan_id}/pegawai`}>
+                                <Link href={`/dashboard-perusahaan/${pegawai.instansi_id}/pegawai`}>
                                     <Button variant="outline">Back</Button>
                                 </Link>
                             </div>

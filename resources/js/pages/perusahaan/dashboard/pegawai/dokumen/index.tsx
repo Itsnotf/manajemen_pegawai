@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import DeleteButton from '@/components/delete-button-perusahaan-pegawai';
 import { Edit2Icon, File, FileUser, PlusCircle, Subscript } from 'lucide-react';
-import { BreadcrumbItem, Dokumen, Jabatan, Pegawai, Perusahaan } from '@/types';
+import { BreadcrumbItem, Dokumen, Jabatan, Pegawai, Instansi } from '@/types';
 import { toast } from 'sonner';
 
 import {
@@ -19,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 
 
 interface Props {
-    perusahaan: Perusahaan;
+    instansi: Instansi;
     pegawai: Pegawai
     dokumens: {
         data: Dokumen[];
@@ -35,24 +35,24 @@ interface Props {
 
 
 
-export default function PegawaiDokumenPage({ perusahaan, dokumens, filters = {}, flash, pegawai }: Props) {
+export default function PegawaiDokumenPage({ instansi, dokumens, filters = {}, flash, pegawai }: Props) {
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: 'Dokumen',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`,
         },
         {
             title: pegawai.nama_pegawai,
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`,
         },
     ];
 
@@ -68,11 +68,11 @@ export default function PegawaiDokumenPage({ perusahaan, dokumens, filters = {},
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        router.get(`/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`, { search }, { preserveState: true });
+        router.get(`/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`, { search }, { preserveState: true });
     };
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Dokumen" />
 
             <div className="p-4 space-y-4">
@@ -88,7 +88,7 @@ export default function PegawaiDokumenPage({ perusahaan, dokumens, filters = {},
                         <Button variant='outline' type="submit">Search</Button>
                     </form>
                     {hasAnyPermission(["dokumen create"]) && (
-                        <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen/create`} >
+                        <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen/create`} >
                             <Button variant='default' className='group flex items-center'>
                                 <PlusCircle className='group-hover:rotate-90 transition-all' />
                                 Add Dokumen
@@ -129,7 +129,7 @@ export default function PegawaiDokumenPage({ perusahaan, dokumens, filters = {},
                                         {hasAnyPermission(["dokumen edit"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${d.pegawai_id}/dokumen/${d.id}/edit`}>
+                                                    <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.pegawai_id}/dokumen/${d.id}/edit`}>
                                                         <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
                                                             <Edit2Icon />
                                                         </Button>
@@ -141,7 +141,7 @@ export default function PegawaiDokumenPage({ perusahaan, dokumens, filters = {},
                                         {hasAnyPermission(["dokumen delete"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <DeleteButton perusahaanId={perusahaan.id} id={Number(d.pegawai_id)} featured='pegawai' childfeature='dokumen' childId={d.id} />
+                                                    <DeleteButton perusahaanId={instansi.id} id={Number(d.pegawai_id)} featured='pegawai' childfeature='dokumen' childId={d.id} />
                                                 </TooltipTrigger>
                                                 <TooltipContent>Delete</TooltipContent>
                                             </Tooltip>

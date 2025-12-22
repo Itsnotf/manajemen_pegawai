@@ -66,9 +66,9 @@ class DashboardController extends Controller
                 'totalPegawai' => $totalPegawai,
                 'totalUser' => $totalUser,
             ],
-            'instansiList' => $instansiList,
-            'recentInstansi' => $recentInstansi,
-            'topInstansi' => $topInstansi,
+            'perusahaanList' => $instansiList,
+            'recentPerusahaan' => $recentInstansi,
+            'topPerusahaan' => $topInstansi,
         ]);
     }
 }

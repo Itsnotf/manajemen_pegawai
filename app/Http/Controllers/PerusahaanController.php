@@ -99,7 +99,7 @@ class PerusahaanController extends Controller implements HasMiddleware
      */
     public function destroy(string $id)
     {
-        $perusahaan = Perusahaan::findOrFail($id);
+        $perusahaan = Instansi::findOrFail($id);
         $perusahaan->delete();
 
         return redirect()->route('perusahaan.index')->with('success', 'Perusahaan deleted successfully.');

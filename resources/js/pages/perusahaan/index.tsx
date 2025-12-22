@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import DeleteButton from '@/components/delete-button';
 import { Building, Edit2Icon, PlusCircle } from 'lucide-react';
-import { BreadcrumbItem, Perusahaan, SharedData, User } from '@/types';
+import { BreadcrumbItem, Instansi, SharedData, User } from '@/types';
 import { toast } from 'sonner';
 import users from '@/routes/users';
 import {
@@ -20,7 +20,7 @@ import perusahaan from '@/routes/perusahaan';
 
 interface Props {
     perusahaans: {
-        data: Perusahaan[];
+        data: Instansi[];
         links: any[];
     };
     filters: {
@@ -103,8 +103,8 @@ export default function PerusahaanPage({ perusahaans, filters, flash }: Props) {
                         ) : (
                             perusahaans.data.map((perusahaan) => (
                                 <TableRow key={perusahaan.id}>
-                                    <TableCell>{perusahaan.nama_perusahaan}</TableCell>
-                                    <TableCell>{perusahaan.alamat_perusahaan}</TableCell>
+                                    <TableCell>{perusahaan.nama_instansi}</TableCell>
+                                    <TableCell>{perusahaan.alamat_instansi}</TableCell>
                                     <TableCell>{perusahaan.email}</TableCell>
                                     <TableCell>{perusahaan.telepon}</TableCell>
                                     <TableCell className="space-x-2">

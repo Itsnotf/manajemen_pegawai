@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Input } from '@/components/ui/input';
 import DeleteButton from '@/components/delete-button-perusahaan';
 import { Edit2Icon, File, FileUser, PlusCircle, Subscript } from 'lucide-react';
-import { BreadcrumbItem, Jabatan, Pegawai, Perusahaan } from '@/types';
+import { BreadcrumbItem, Jabatan, Pegawai, Instansi } from '@/types';
 import { toast } from 'sonner';
 
 import {
@@ -19,7 +19,7 @@ import { Badge } from '@/components/ui/badge';
 
 
 interface Props {
-    perusahaan: Perusahaan;
+    instansi: Instansi;
     pegawais: {
         data: Pegawai[];
         links: any[];
@@ -34,15 +34,15 @@ interface Props {
 
 
 
-export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash }: Props) {
+export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }: Props) {
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
     ];
     const [search, setSearch] = useState(filters.search || '');
@@ -57,11 +57,11 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        router.get(`/dashboard-perusahaan/${perusahaan.id}/pegawai`, { search }, { preserveState: true });
+        router.get(`/dashboard-perusahaan/${instansi.id}/pegawai`, { search }, { preserveState: true });
     };
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Pegawai" />
 
             <div className="p-4 space-y-4">
@@ -77,7 +77,7 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
                         <Button variant='outline' type="submit">Search</Button>
                     </form>
                     {hasAnyPermission(["pegawai create"]) && (
-                        <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/create`} >
+                        <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/create`} >
                             <Button variant='default' className='group flex items-center'>
                                 <PlusCircle className='group-hover:rotate-90 transition-all' />
                                 Add Pegawai
@@ -122,7 +122,7 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
                                         {hasAnyPermission(["dokumen index"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${d.id}/dokumen`}>
+                                                    <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/dokumen`}>
                                                         <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
                                                             <File />
                                                         </Button>
@@ -134,7 +134,7 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
                                         {hasAnyPermission(["pegawai pribadi"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${d.id}/pribadi`}>
+                                                    <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/pribadi`}>
                                                         <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
                                                             <FileUser />
                                                         </Button>
@@ -146,7 +146,7 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
                                         {hasAnyPermission(["pegawai edit"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${d.id}/edit`}>
+                                                    <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/edit`}>
                                                         <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
                                                             <Edit2Icon />
                                                         </Button>
@@ -158,7 +158,7 @@ export default function PegawaiPage({ perusahaan, pegawais, filters = {}, flash 
                                         {hasAnyPermission(["pegawai delete"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
-                                                    <DeleteButton perusahaanId={perusahaan.id} id={d.id} featured='pegawai' />
+                                                    <DeleteButton perusahaanId={instansi.id} id={d.id} featured='pegawai' />
                                                 </TooltipTrigger>
                                                 <TooltipContent>Delete</TooltipContent>
                                             </Tooltip>

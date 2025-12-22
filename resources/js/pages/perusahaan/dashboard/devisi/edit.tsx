@@ -13,7 +13,6 @@ import { update } from '@/routes/perusahaan/dashboard/devisi';
 
 interface Props {
     divisi : Divisi
-    perusahaanId: string | number;
 }
 
 
@@ -77,7 +76,7 @@ export default function DivisiEditPage({ divisi }: Props) {
                                         'Update Divisi'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${divisi.instansi_id}/divisi`}>
+                                <Link href={`/dashboard-perusahaan/${divisi.instansi_id}/devisi`}>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

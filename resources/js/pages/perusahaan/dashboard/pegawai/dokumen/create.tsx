@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout-perusahaan';
 import { Link, Head, Form } from '@inertiajs/react';
 import { Input } from '@/components/ui/input';
-import { BreadcrumbItem, Pegawai, Perusahaan } from '@/types';
+import { BreadcrumbItem, Pegawai, Instansi } from '@/types';
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
@@ -10,36 +10,36 @@ import { store } from '@/routes/perusahaan/dashboard/pegawai/dokumen';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Props {
-    perusahaan: Perusahaan;
+    instansi: Instansi;
     pegawai: Pegawai;
 }
 
-export default function DokumenCreatePage({ perusahaan, pegawai }: Props) {
+export default function DokumenCreatePage({ instansi, pegawai }: Props) {
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: pegawai.nama_pegawai,
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: 'Dokumen',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`,
         },
         {
             title: 'Create',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen/create`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen/create`,
         },
     ];
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Tambah Dokumen" />
 
             <Card className="m-5">
@@ -49,7 +49,7 @@ export default function DokumenCreatePage({ perusahaan, pegawai }: Props) {
                 <CardContent>
                     <Form
                         {...store.form({
-                            perusahaanId: perusahaan.id,
+                            perusahaanId: instansi.id,
                             pegawaiId: pegawai.id,
                         })}
                         disableWhileProcessing
@@ -110,7 +110,7 @@ export default function DokumenCreatePage({ perusahaan, pegawai }: Props) {
                                             )}
                                         </Button>
                                         <Link
-                                            href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`}
+                                            href={`/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`}
                                         >
                                             <Button variant="outline" type="button" className="w-fit">
                                                 Back

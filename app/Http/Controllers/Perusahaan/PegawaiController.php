@@ -45,7 +45,7 @@ class PegawaiController extends Controller implements HasMiddleware
         $instansi = Instansi::findOrFail($perusahaanId);
         return inertia('perusahaan/dashboard/pegawai/index', [
             'pegawais' => $pegawais,
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'filters' => $request->only('search'),
             'flash' => [
                 'success' => session('success'),
@@ -64,8 +64,8 @@ class PegawaiController extends Controller implements HasMiddleware
         $instansi = Instansi::findOrFail($perusahaanId);
 
         return Inertia::render('perusahaan/dashboard/pegawai/create', [
-            'perusahaan' => $instansi,
-            'devisis' => $divisis,
+            'instansi' => $instansi,
+            'divisis' => $divisis,
             'jabatans' => $jabatan
         ]);
     }
@@ -110,8 +110,8 @@ class PegawaiController extends Controller implements HasMiddleware
         $pegawai = Pegawai::findOrFail($pegawaiId);
 
         return Inertia::render('perusahaan/dashboard/pegawai/edit', [
-            'perusahaan' => $instansi,
-            'devisis' => $divisis,
+            'instansi' => $instansi,
+            'divisis' => $divisis,
             'jabatans' => $jabatan,
             'pegawai' => $pegawai
         ]);

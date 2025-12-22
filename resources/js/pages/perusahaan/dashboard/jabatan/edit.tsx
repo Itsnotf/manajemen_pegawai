@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout-perusahaan';
 import { Link, Head, router, Form } from '@inertiajs/react';
 import { Input } from '@/components/ui/input';
-import { BreadcrumbItem, Devisi, Jabatan, Perusahaan } from '@/types';
+import { BreadcrumbItem, Divisi, Jabatan, Instansi } from '@/types';
 import InputError from '@/components/input-error';
 import {
     Select,
@@ -19,37 +19,37 @@ import { jabatan } from '@/routes/perusahaan/dashboard';
 
 
 interface Props {
-    perusahaan: Perusahaan
-    devisis: Devisi[];
+    instansi: Instansi
+    devisis: Divisi[];
     jabatan: Jabatan
 }
 
 
-export default function DevisiCreatePage({ perusahaan, devisis, jabatan }: Props) {
+export default function DevisiCreatePage({ instansi, devisis, jabatan }: Props) {
     const [selectedDevisi, setSelectedDevisi] = useState(jabatan.divisi_id.toString());
 
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Jabatan',
-            href: `/dashboard-perusahaan/${perusahaan.id}/jabatan`,
+            href: `/dashboard-perusahaan/${instansi.id}/jabatan`,
         },
         {
             title: 'Edit',
-            href: `/dashboard-perusahaan/${perusahaan.id}/jabatan/edit`,
+            href: `/dashboard-perusahaan/${instansi.id}/jabatan/edit`,
         },
     ];
 
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Jabatan" />
             <Form
-                {...update.form({ perusahaanId: perusahaan.id, jabatanId: jabatan.id })}
+                {...update.form({ perusahaanId: instansi.id, jabatanId: jabatan.id })}
                 resetOnSuccess={['devisi_id', 'nama_devisi']}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
@@ -111,7 +111,7 @@ export default function DevisiCreatePage({ perusahaan, devisis, jabatan }: Props
                                         'Update Jabatan'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${perusahaan.id}/jabatan`}>
+                                <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan`}>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

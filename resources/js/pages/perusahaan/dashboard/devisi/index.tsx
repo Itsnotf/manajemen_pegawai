@@ -20,7 +20,7 @@ import divisi from '@/routes/perusahaan/dashboard/devisi';
 
 interface Props {
     perusahaanId: number;
-    perusahaan : Instansi;
+    instansi : Instansi;
     divisis: {
         data: Divisi[];
         links: any[];
@@ -35,10 +35,10 @@ interface Props {
 
 
 
-export default function DivisiPage({ perusahaan ,perusahaanId, divisis, filters = {}, flash }: Props) {
+export default function DivisiPage({ instansi ,perusahaanId, divisis, filters = {}, flash }: Props) {
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_instansi,
+            title: instansi.nama_instansi,
             href: `/dashboard-perusahaan/${perusahaanId}`,
         },
         {
@@ -77,7 +77,7 @@ export default function DivisiPage({ perusahaan ,perusahaanId, divisis, filters 
                         />
                         <Button variant='outline' type="submit">Search</Button>
                     </form>
-                    {hasAnyPermission(["divisi create"]) && (
+                    {hasAnyPermission(["devisi create"]) && (
                         <Link href={divisi.create(perusahaanId)} >
                             <Button variant='default' className='group flex items-center'>
                                 <PlusCircle className='group-hover:rotate-90 transition-all' />
@@ -110,7 +110,7 @@ export default function DivisiPage({ perusahaan ,perusahaanId, divisis, filters 
                                     <TableCell>{d.instansi?.nama_instansi}</TableCell>
                                     <TableCell>{d.nama_divisi}</TableCell>
                                     <TableCell className="space-x-2">
-                                        {hasAnyPermission(["divisi edit"]) && (
+                                        {hasAnyPermission(["devisi edit"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={divisi.edit({ perusahaanId: d.instansi_id, devisiId: d.id })}>
@@ -122,7 +122,7 @@ export default function DivisiPage({ perusahaan ,perusahaanId, divisis, filters 
                                                 <TooltipContent>Edit</TooltipContent>
                                             </Tooltip>
                                         )}
-                                        {hasAnyPermission(["divisi delete"]) && (
+                                        {hasAnyPermission(["devisi delete"]) && (
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <DeleteButton perusahaanId={d.instansi_id} id={d.id} featured='devisi' />

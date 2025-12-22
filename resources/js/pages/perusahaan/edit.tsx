@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout';
 import { Link, Head, router, Form } from '@inertiajs/react';
 import { Input } from '@/components/ui/input';
-import { BreadcrumbItem, Perusahaan, Role, User } from '@/types';
+import { BreadcrumbItem, Instansi, Role, User } from '@/types';
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
@@ -18,7 +18,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 
 interface Props {
-    perusahaans: Perusahaan;
+    perusahaans: Instansi;
 }
 
 
@@ -55,7 +55,7 @@ export default function PerusahaanEditPage({ perusahaans }: Props) {
                                     autoFocus
                                     tabIndex={1}
                                     autoComplete="nama_perusahaan"
-                                    defaultValue={perusahaans.nama_perusahaan}
+                                    defaultValue={perusahaans.nama_instansi}
                                     name="nama_perusahaan"
                                     placeholder="Nama Perusahaan"
                                 />
@@ -102,7 +102,7 @@ export default function PerusahaanEditPage({ perusahaans }: Props) {
                                     id="alamat_perusahaan"
                                     name="alamat_perusahaan"
                                     placeholder="Masukkan alamat perusahaan"
-                                    defaultValue={perusahaans.alamat_perusahaan}
+                                    defaultValue={perusahaans.alamat_instansi}
                                     className='min-h-36'
                                 />
                                 <InputError message={errors.alamat_perusahaan} />

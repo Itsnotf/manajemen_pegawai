@@ -63,16 +63,6 @@ export interface Role {
     permissions?: Permission[];
 }
 
-export interface Perusahaan {
-    id: number;
-    nama_perusahaan: string;
-    alamat_perusahaan: string;
-    email: string;
-    telepon: string;
-    created_at: string;
-    updated_at: string;
-}
-
 export interface Instansi {
     id: number;
     nama_instansi: string;
@@ -90,15 +80,6 @@ export interface Divisi {
     created_at: string;
     updated_at: string;
     instansi?: Instansi;
-}
-
-export interface Devisi {
-    id: number;
-    perusahaan_id: string | number;
-    nama_divisi: string;
-    created_at: string;
-    updated_at: string;
-    perusahaan?: Perusahaan;
 }
 
 export interface Jabatan {
@@ -120,8 +101,6 @@ export interface Pegawai {
     image: file | null;
     tipe_pegawai: string;
     nip: string;
-    perusahaan_id?: string | number;
-    perusahaan?: Perusahaan;
     instansi?: Instansi;
     divisi?: Divisi;
     jabatan?: Jabatan;

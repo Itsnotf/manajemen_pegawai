@@ -27,11 +27,11 @@ class DokumenController extends Controller
             ->withQueryString();
 
         $pegawai = Pegawai::findOrFail($pegawaiId);
-        $perusahaan = Perusahaan::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
         return inertia('perusahaan/dashboard/pegawai/dokumen/index', [
             'pegawai' => $pegawai,
             'dokumens' => $dokumens,
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'filters' => $request->only('search'),
             'flash' => [
                 'success' => session('success'),
@@ -44,11 +44,10 @@ class DokumenController extends Controller
      */
     public function create(string $perusahaanId, string $pegawaiId)
     {
-
-        $perusahaan = Perusahaan::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
         $pegawai = Pegawai::findOrFail($pegawaiId);
         return Inertia::render('perusahaan/dashboard/pegawai/dokumen/create', [
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'pegawai' => $pegawai,
         ]);
     }
@@ -87,10 +86,10 @@ class DokumenController extends Controller
     {
         $dokumen = Dokumen::findOrFail($dokumenId);
         $pegawai = Pegawai::findOrFail($pegawaiId);
-        $perusahaan = Perusahaan::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
 
         return Inertia::render('perusahaan/dashboard/pegawai/dokumen/edit', [
-            'perusahaan' => $perusahaan,
+            'instansi' => $instansi,
             'pegawai' => $pegawai,
             'dokumen' => $dokumen,
         ]);

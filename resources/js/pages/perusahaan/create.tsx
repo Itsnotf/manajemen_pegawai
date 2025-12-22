@@ -36,7 +36,7 @@ export default function PerusahaanCreatePage({ }: Props) {
             <Head title="Perusahaan" />
             <Form
                 {...store.form()}
-                resetOnSuccess={['nama_perusahaan', 'alamat_perusahaan', 'email', 'telepon']}
+                resetOnSuccess={['nama_instansi', 'alamat_instansi', 'email', 'telepon']}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
             >
@@ -44,19 +44,19 @@ export default function PerusahaanCreatePage({ }: Props) {
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="nama_perusahaan">Nama Perusahaan</Label>
+                                <Label htmlFor="nama_instansi">Nama Instansi</Label>
                                 <Input
-                                    id="nama_perusahaan"
+                                    id="nama_instansi"
                                     type="text"
                                     required
                                     autoFocus
                                     tabIndex={1}
-                                    autoComplete="nama_perusahaan"
-                                    name="nama_perusahaan"
-                                    placeholder="Nama Perusahaan"
+                                    autoComplete="nama_instansi"
+                                    name="nama_instansi"
+                                    placeholder="Nama Instansi"
                                 />
                                 <InputError
-                                    message={errors.nama_perusahaan}
+                                    message={errors.nama_instansi}
                                     className="mt-2"
                                 />
                             </div>

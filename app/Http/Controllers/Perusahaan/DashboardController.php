@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Perusahaan;
 
 use App\Http\Controllers\Controller;
-use App\Models\Perusahaan;
+use App\Models\Instansi;
 use App\Models\Pegawai;
-use App\Models\Devisi;
+use App\Models\Divisi;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
@@ -13,55 +13,55 @@ class DashboardController extends Controller
 {
     public function index(string $perusahaanId)
     {
-        $perusahaan = Perusahaan::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
         
         // Total Statistics
-        $totalPegawai = Pegawai::where('perusahaan_id', $perusahaanId)->count();
-        $totalDevisi = Devisi::where('perusahaan_id', $perusahaanId)->count();
-        $totalJabatan = Jabatan::whereIn('devisi_id', Devisi::where('perusahaan_id', $perusahaanId)->pluck('id'))->count();
+        $totalPegawai = Pegawai::where('instansi_id', $perusahaanId)->count();
+        $totalDivisi = Divisi::where('instansi_id', $perusahaanId)->count();
+        $totalJabatan = Jabatan::whereIn('divisi_id', Divisi::where('instansi_id', $perusahaanId)->pluck('id'))->count();
         
         // Pegawai by Type
-        $pegawaiByType = Pegawai::where('perusahaan_id', $perusahaanId)
+        $pegawaiByType = Pegawai::where('instansi_id', $perusahaanId)
             ->selectRaw('tipe_pegawai, COUNT(*) as count')
             ->groupBy('tipe_pegawai')
             ->get();
         
-        // Pegawai by Devisi
-        $pegawaiByDevisi = Pegawai::where('perusahaan_id', $perusahaanId)
-            ->with('devisi')
-            ->selectRaw('devisi_id, COUNT(*) as count')
-            ->groupBy('devisi_id')
+        // Pegawai by Divisi
+        $pegawaiByDivisi = Pegawai::where('instansi_id', $perusahaanId)
+            ->with('divisi')
+            ->selectRaw('divisi_id, COUNT(*) as count')
+            ->groupBy('divisi_id')
             ->get()
             ->map(function($item) {
                 return [
-                    'devisi_name' => $item->devisi->nama_devisi ?? 'Unknown',
+                    'divisi_name' => $item->divisi->nama_divisi ?? 'Unknown',
                     'count' => $item->count
                 ];
             });
         
         // Recent Pegawai
-        $recentPegawai = Pegawai::where('perusahaan_id', $perusahaanId)
-            ->with('devisi', 'jabatan')
+        $recentPegawai = Pegawai::where('instansi_id', $perusahaanId)
+            ->with('divisi', 'jabatan')
             ->latest()
             ->take(5)
             ->get();
         
-        // Devisi with Pegawai count
-        $devisiWithCount = Devisi::where('perusahaan_id', $perusahaanId)
+        // Divisi with Pegawai count
+        $divisiWithCount = Divisi::where('instansi_id', $perusahaanId)
             ->withCount('jabatan')
             ->get();
 
         return inertia('perusahaan/dashboard/index', [
-            'perusahaan' => $perusahaan,
+            'instansi' => $instansi,
             'statistics' => [
                 'totalPegawai' => $totalPegawai,
-                'totalDevisi' => $totalDevisi,
+                'totalDevisi' => $totalDivisi,
                 'totalJabatan' => $totalJabatan,
             ],
             'pegawaiByType' => $pegawaiByType,
-            'pegawaiByDevisi' => $pegawaiByDevisi,
+            'pegawaiByDevisi' => $pegawaiByDivisi,
             'recentPegawai' => $recentPegawai,
-            'devisiList' => $devisiWithCount,
+            'devisiList' => $divisiWithCount,
         ]);
     }
 }

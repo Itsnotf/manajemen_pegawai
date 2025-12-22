@@ -18,14 +18,14 @@ import { useState } from 'react';
 
 
 interface Props {
-    perusahaan: Instansi
+    instansi: Instansi
     divisis: Divisi[];
     jabatans: Jabatan[];
     pegawai: Pegawai;
 }
 
 
-export default function PegawaiEditPage({ perusahaan, divisis, jabatans, pegawai }: Props) {
+export default function PegawaiEditPage({ instansi, divisis, jabatans, pegawai }: Props) {
     const [selectedDivisi, setSelectedDivisi] = useState(pegawai.divisi_id);
     const [selectedJabatan, setSelectedJabatan] = useState(pegawai.jabatan_id);
     const [selectedTipe, setSelectedTipe] = useState(pegawai.tipe_pegawai);
@@ -36,16 +36,16 @@ export default function PegawaiEditPage({ perusahaan, divisis, jabatans, pegawai
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_instansi,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: 'Edit',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/edit`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/edit`,
         },
     ];
 
@@ -54,10 +54,10 @@ export default function PegawaiEditPage({ perusahaan, divisis, jabatans, pegawai
 
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Pegawai" />
             <Form
-                {...update.form({ perusahaanId: perusahaan.id, pegawaiId: pegawai.id })}
+                {...update.form({ perusahaanId: instansi.id, pegawaiId: pegawai.id })}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
             >
@@ -214,7 +214,7 @@ export default function PegawaiEditPage({ perusahaan, divisis, jabatans, pegawai
                                         'Update Pegawai'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai`}>
+                                <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai`}>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

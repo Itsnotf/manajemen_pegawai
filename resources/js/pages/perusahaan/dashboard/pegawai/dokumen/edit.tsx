@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout-perusahaan';
 import { Link, Head, Form } from '@inertiajs/react';
 import { Input } from '@/components/ui/input';
-import { BreadcrumbItem, Dokumen, Pegawai, Perusahaan } from '@/types';
+import { BreadcrumbItem, Dokumen, Pegawai, Instansi } from '@/types';
 import InputError from '@/components/input-error';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
@@ -10,37 +10,37 @@ import { update } from '@/routes/perusahaan/dashboard/pegawai/dokumen';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface Props {
-    perusahaan: Perusahaan;
+    instansi: Instansi;
     pegawai: Pegawai;
     dokumen: Dokumen;
 }
 
-export default function DokumenEditPage({ perusahaan, pegawai, dokumen }: Props) {
+export default function DokumenEditPage({ instansi, pegawai, dokumen }: Props) {
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: pegawai.nama_pegawai,
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: 'Dokumen',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`,
         },
         {
             title: 'Edit',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen/${dokumen.id}/edit`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen/${dokumen.id}/edit`,
         },
     ];
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Edit Dokumen" />
 
             <Card className="m-5">
@@ -50,7 +50,7 @@ export default function DokumenEditPage({ perusahaan, pegawai, dokumen }: Props)
                 <CardContent>
                     <Form
                         {...update.form({
-                            perusahaanId: perusahaan.id,
+                            perusahaanId: instansi.id,
                             pegawaiId: pegawai.id,
                             dokumenId: dokumen.id,
                         })}
@@ -120,7 +120,7 @@ export default function DokumenEditPage({ perusahaan, pegawai, dokumen }: Props)
                                             )}
                                         </Button>
                                         <Link
-                                            href={`/dashboard-perusahaan/${perusahaan.id}/pegawai/${pegawai.id}/dokumen`}
+                                            href={`/dashboard-perusahaan/${instansi.id}/pegawai/${pegawai.id}/dokumen`}
                                         >
                                             <Button variant="outline" type="button" className="w-fit">
                                                 Back

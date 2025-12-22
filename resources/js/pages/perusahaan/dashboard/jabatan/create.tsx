@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/app-layout-perusahaan';
 import { Link, Head, router, Form } from '@inertiajs/react';
 import { Input } from '@/components/ui/input';
-import { BreadcrumbItem, Devisi, Perusahaan } from '@/types';
+import { BreadcrumbItem, Divisi, Instansi } from '@/types';
 import InputError from '@/components/input-error';
 import {
     Select,
@@ -18,36 +18,36 @@ import { useState } from 'react';
 
 
 interface Props {
-    perusahaan: Perusahaan
-    devisis: Devisi[];
+    instansi: Instansi
+    devisis: Divisi[];
 }
 
 
-export default function DevisiCreatePage({ perusahaan, devisis }: Props) {
+export default function DevisiCreatePage({ instansi, devisis }: Props) {
     const [selectedDevisi, setSelectedDevisi] = useState("");
 
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_perusahaan,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Jabatan',
-            href: `/dashboard-perusahaan/${perusahaan.id}/jabatan`,
+            href: `/dashboard-perusahaan/${instansi.id}/jabatan`,
         },
         {
             title: 'Create',
-            href: `/dashboard-perusahaan/${perusahaan.id}/jabatan/create`,
+            href: `/dashboard-perusahaan/${instansi.id}/jabatan/create`,
         },
     ];
 
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Jabatan" />
             <Form
-                {...store.form(perusahaan.id)}
+                {...store.form(instansi.id)}
                 resetOnSuccess={['nama_devisi']}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
@@ -108,7 +108,7 @@ export default function DevisiCreatePage({ perusahaan, devisis }: Props) {
                                         'Create Jabatan'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${perusahaan.id}/jabatan`}>
+                                <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan`}>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

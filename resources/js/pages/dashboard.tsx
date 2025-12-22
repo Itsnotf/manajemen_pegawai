@@ -8,30 +8,30 @@ import { Button } from '@/components/ui/button';
 
 interface Props {
     statistics: {
-        totalPerusahaan: number;
+        totalInstansi: number;
         totalPegawai: number;
         totalUser: number;
     };
     perusahaanList: Array<{
         id: number;
-        nama_perusahaan: string;
-        alamat_perusahaan: string;
+        nama_instansi: string;
+        alamat_instansi: string;
         email: string;
         telepon: string;
-        devisis_count: number;
+        divisis_count: number;
         pegawai_count: number;
     }>;
     recentPerusahaan: Array<{
         id: number;
-        nama_perusahaan: string;
+        nama_instansi: string;
         email: string;
         telepon: string;
-        devisis_count: number;
+        divisis_count: number;
         pegawai_count: number;
         created_at: string;
     }>;
     topPerusahaan: Array<{
-        nama_perusahaan: string;
+        nama_instansi: string;
         pegawai_count: number;
     }>;
 }
@@ -82,16 +82,16 @@ export default function Dashboard({
                 {/* Header */}
                 <div>
                     <h1 className="text-3xl font-bold">Dashboard Utama</h1>
-                    <p className="text-gray-500 mt-1">Overview semua perusahaan dan karyawan</p>
+                    <p className="text-gray-500 mt-1">Overview semua instansi dan pegawai</p>
                 </div>
 
                 {/* Statistics Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <StatCard
                         icon={Building2}
-                        title="Total Perusahaan"
-                        value={statistics.totalPerusahaan}
-                        description="Jumlah perusahaan aktif"
+                        title="Total Instansi"
+                        value={statistics.totalInstansi}
+                        description="Jumlah instansi aktif"
                         color="text-blue-500"
                     />
                     <StatCard
@@ -111,19 +111,19 @@ export default function Dashboard({
                     <StatCard
                         icon={TrendingUp}
                         title="Rasio Pegawai"
-                        value={statistics.totalPerusahaan > 0 ? Math.round(statistics.totalPegawai / statistics.totalPerusahaan) : 0}
-                        description="Pegawai per perusahaan"
+                        value={statistics.totalInstansi > 0 ? Math.round(statistics.totalPegawai / statistics.totalInstansi) : 0}
+                        description="Pegawai per instansi"
                         color="text-orange-500"
                     />
                 </div>
 
                 {/* Charts Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Top Perusahaan by Pegawai */}
+                    {/* Top Instansi by Pegawai */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Top Perusahaan</CardTitle>
-                            <CardDescription>Perusahaan dengan pegawai terbanyak</CardDescription>
+                            <CardTitle>Top Instansi</CardTitle>
+                            <CardDescription>Instansi dengan pegawai terbanyak</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-4">
@@ -131,7 +131,7 @@ export default function Dashboard({
                                     topPerusahaan.map((item, idx) => (
                                         <div key={idx} className="flex items-center justify-between">
                                             <div className="flex-1">
-                                                <p className="font-medium">{item.nama_perusahaan}</p>
+                                                <p className="font-medium">{item.nama_instansi}</p>
                                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                                     <div
                                                         className="bg-blue-500 h-2 rounded-full"
@@ -151,11 +151,11 @@ export default function Dashboard({
                         </CardContent>
                     </Card>
 
-                    {/* Recent Perusahaan */}
+                    {/* Recent Instansi */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Perusahaan Terbaru</CardTitle>
-                            <CardDescription>5 perusahaan yang baru ditambahkan</CardDescription>
+                            <CardTitle>Instansi Terbaru</CardTitle>
+                            <CardDescription>5 instansi yang baru ditambahkan</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-3">
@@ -163,11 +163,11 @@ export default function Dashboard({
                                     recentPerusahaan.map((perusahaan) => (
                                         <div key={perusahaan.id} className="flex justify-between items-start p-3 border rounded-lg">
                                             <div className="flex-1">
-                                                <p className="font-medium">{perusahaan.nama_perusahaan}</p>
+                                                <p className="font-medium">{perusahaan.nama_instansi}</p>
                                                 <p className="text-sm text-gray-500">{perusahaan.email}</p>
                                                 <div className="flex gap-4 mt-2">
                                                     <span className="text-xs text-gray-600">
-                                                        Divisi: <span className="font-bold">{perusahaan.devisis_count}</span>
+                                                        Divisi: <span className="font-bold">{perusahaan.divisis_count}</span>
                                                     </span>
                                                     <span className="text-xs text-gray-600">
                                                         Pegawai: <span className="font-bold">{perusahaan.pegawai_count}</span>
@@ -213,13 +213,13 @@ export default function Dashboard({
                                     {perusahaanList.length > 0 ? (
                                         perusahaanList.map((perusahaan) => (
                                             <TableRow key={perusahaan.id}>
-                                                <TableCell className="font-medium">{perusahaan.nama_perusahaan}</TableCell>
-                                                <TableCell className="max-w-xs truncate">{perusahaan.alamat_perusahaan}</TableCell>
+                                                <TableCell className="font-medium">{perusahaan.nama_instansi}</TableCell>
+                                                <TableCell className="max-w-xs truncate">{perusahaan.alamat_instansi}</TableCell>
                                                 <TableCell>{perusahaan.email}</TableCell>
                                                 <TableCell>{perusahaan.telepon}</TableCell>
                                                 <TableCell className="text-center">
                                                     <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
-                                                        {perusahaan.devisis_count}
+                                                        {perusahaan.divisis_count}
                                                     </span>
                                                 </TableCell>
                                                 <TableCell className="text-center">

@@ -18,13 +18,13 @@ import { useState } from 'react';
 
 
 interface Props {
-    perusahaan: Instansi
+    instansi: Instansi
     divisis: Divisi[];
     jabatans: Jabatan[];
 }
 
 
-export default function PegawaiCreatePage({ perusahaan, divisis, jabatans }: Props) {
+export default function PegawaiCreatePage({ instansi, divisis, jabatans }: Props) {
     const [selectedDivisi, setSelectedDivisi] = useState("");
     const [selectedJabatan, setSelectedJabatan] = useState("");
     const [selectedTipe, setSelectedTipe] = useState("");
@@ -37,26 +37,26 @@ export default function PegawaiCreatePage({ perusahaan, divisis, jabatans }: Pro
 
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_instansi,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Pegawai',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai`,
         },
         {
             title: 'Create',
-            href: `/dashboard-perusahaan/${perusahaan.id}/pegawai/create`,
+            href: `/dashboard-perusahaan/${instansi.id}/pegawai/create`,
         },
     ];
 
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Pegawai" />
             
             <Form
-                {...store.form(perusahaan.id)}
+                {...store.form(instansi.id)}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
             >
@@ -211,7 +211,7 @@ export default function PegawaiCreatePage({ perusahaan, divisis, jabatans }: Pro
                                         'Create Pegawai'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${perusahaan.id}/pegawai`}>
+                                <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai`}>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

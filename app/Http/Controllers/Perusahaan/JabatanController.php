@@ -45,7 +45,7 @@ class JabatanController extends Controller implements HasMiddleware
         $instansi = Instansi::findOrFail($perusahaanId);
         return inertia('perusahaan/dashboard/jabatan/index', [
             'jabatans' => $jabatans,
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'filters' => $request->only('search'),
             'flash' => [
                 'success' => session('success'),
@@ -61,7 +61,7 @@ class JabatanController extends Controller implements HasMiddleware
         $divisis = Divisi::where('instansi_id', $perusahaanId)->get();
         $instansi = Instansi::findOrFail($perusahaanId);
         return Inertia::render('perusahaan/dashboard/jabatan/create', [
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'devisis' => $divisis
         ]);
     }
@@ -93,7 +93,7 @@ class JabatanController extends Controller implements HasMiddleware
         $instansi = Instansi::findOrFail($perusahaanId);
         return Inertia::render('perusahaan/dashboard/jabatan/edit', [
             'devisis' => $divisis,
-            'perusahaan' => $instansi,
+            'instansi' => $instansi,
             'jabatan' => $jabatan
         ]);
     }

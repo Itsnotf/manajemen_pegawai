@@ -12,33 +12,33 @@ import { store } from '@/routes/perusahaan/dashboard/devisi';
 
 
 interface Props {
-    perusahaan: Instansi
+    instansi: Instansi
 }
 
 
-export default function DivisiCreatePage({ perusahaan }: Props) {
-    
+export default function DivisiCreatePage({ instansi }: Props) {
+
     const breadcrumbs: BreadcrumbItem[] = [
         {
-            title: perusahaan.nama_instansi,
-            href: `/dashboard-perusahaan/${perusahaan.id}`,
+            title: instansi.nama_instansi,
+            href: `/dashboard-perusahaan/${instansi.id}`,
         },
         {
             title: 'Divisi',
-            href: `/dashboard-perusahaan/${perusahaan.id}/divisi`,
+            href: `/dashboard-perusahaan/${instansi.id}/divisi`,
         },
         {
             title: 'Create',
-            href: `/dashboard-perusahaan/${perusahaan.id}/divisi/create`,
+            href: `/dashboard-perusahaan/${instansi.id}/divisi/create`,
         },
     ];
 
 
     return (
-        <AppLayout perusahaanId={perusahaan.id} breadcrumbs={breadcrumbs}>
+        <AppLayout perusahaanId={instansi.id} breadcrumbs={breadcrumbs}>
             <Head title="Divisi" />
             <Form
-                {...store.form(perusahaan.id)}
+                {...store.form(instansi.id)}
                 resetOnSuccess={['nama_divisi']}
                 disableWhileProcessing
                 className="flex flex-col gap-6 p-4"
@@ -64,7 +64,7 @@ export default function DivisiCreatePage({ perusahaan }: Props) {
                                 />
                             </div>
 
-                    
+
                             <div className='space-x-2'>
                                 <Button type="submit" className="mt-2 w-fit">
                                     {processing ? (
@@ -76,7 +76,9 @@ export default function DivisiCreatePage({ perusahaan }: Props) {
                                         'Create Divisi'
                                     )}
                                 </Button>
-                                <Link href={`/dashboard-perusahaan/${perusahaan.id}/divisi`}>
+                                <Link href={
+                                    `/dashboard-perusahaan/${instansi.id}/devisi`
+                                }>
                                     <Button variant='outline' type="button" className="mt-2 w-fit">
                                         Back
                                     </Button>

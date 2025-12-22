@@ -6,9 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DevisiRequest\StoreRequest;
 use App\Http\Requests\DevisiRequest\UpdateRequest;
 use App\Models\Divisi;
-use App\Models\Devisi;
 use App\Models\Instansi;
-use App\Models\Perusahaan;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -39,7 +37,7 @@ class DevisiController extends Controller implements HasMiddleware
             ->paginate(8)
             ->withQueryString();
 
-        $perusahaan = Instansi::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
         return inertia('perusahaan/dashboard/devisi/index', [
             'divisis' => $divisis,
             'perusahaanId' => $perusahaanId,
@@ -47,7 +45,7 @@ class DevisiController extends Controller implements HasMiddleware
             'flash' => [
                 'success' => session('success'),
             ],
-            'perusahaan' => $perusahaan
+            'instansi' => $instansi
         ]);
     }
 
@@ -56,9 +54,9 @@ class DevisiController extends Controller implements HasMiddleware
      */
     public function create(string $perusahaanId)
     {
-        $perusahaan = Instansi::findOrFail($perusahaanId);
+        $instansi = Instansi::findOrFail($perusahaanId);
         return Inertia::render('perusahaan/dashboard/devisi/create', [
-            'perusahaan' => $perusahaan
+            'instansi' => $instansi
         ]);
     }
 
@@ -89,7 +87,7 @@ class DevisiController extends Controller implements HasMiddleware
     {
         $devisi = Divisi::with('instansi')->findOrFail($devisiId);
         return Inertia::render('perusahaan/dashboard/devisi/edit', [
-            'devisi' => $devisi,
+            'divisi' => $devisi,
         ]);
     }
 
