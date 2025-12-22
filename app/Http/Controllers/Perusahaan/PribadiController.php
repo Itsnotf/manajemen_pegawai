@@ -43,7 +43,8 @@ class PribadiController extends Controller
 
         Pribadi::create(array_merge(
             $request->validated(),
-            ['pegawai_id' => $pegawai->id]
+            ['pegawai_id' => $pegawai->id],
+            ['instansi_id' => $pegawai->instansi_id]
         ));
 
         return redirect()
