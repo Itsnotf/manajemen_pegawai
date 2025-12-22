@@ -44,7 +44,7 @@ const userManagement: NavItem[] = [
 
 const perusahaanManagement: NavItem[] = [
     {
-        title: 'Perusahaan',
+        title: 'Instansi',
         href: perusahaan.index(),
         icon: Building2,
         permissions: ['perusahaan index'],
@@ -77,7 +77,7 @@ export function AppSidebar() {
             <SidebarContent>
                 <NavMain section='Platform' items={mainNavItems} />
                 <NavMain section='Manage User' items={userManagement} />
-                <NavMain section='Manage Perusahaan' items={perusahaanManagement} />
+                <NavMain section='Manage Instansi' items={perusahaanManagement} />
             </SidebarContent>
 
             <SidebarFooter>

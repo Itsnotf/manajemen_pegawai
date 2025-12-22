@@ -33,7 +33,7 @@ export default function DashboardPage({
             href: `/dashboard`,
         },
         {
-            title: 'Dashboard Perusahaan',
+            title: 'Dashboard Instansi',
             href: `/dashboard-perusahaan/${instansi.id}`,
         },
     ];
@@ -93,7 +93,7 @@ export default function DashboardPage({
                     />
                     <StatCard
                         icon={Building2}
-                        title="Total Devisi"
+                        title="Total Divisi"
                         value={statistics.totalDevisi}
                         description="Jumlah divisi yang ada"
                         color="text-green-500"
