@@ -90,7 +90,7 @@ export default function DevisiPage({ instansi , jabatans, filters = {}, flash }:
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Nama Devisi</TableHead>
+                            <TableHead>Nama Divisi</TableHead>
                             <TableHead>Nama Jabatan</TableHead>
                             <TableHead>Action</TableHead>
                         </TableRow>

@@ -109,7 +109,7 @@ export default function DashboardPage({
                         icon={TrendingUp}
                         title="Rasio Pegawai"
                         value={statistics.totalDevisi > 0 ? Math.round(statistics.totalPegawai / statistics.totalDevisi) : 0}
-                        description="Pegawai per devisi"
+                        description="Pegawai per divisi"
                         color="text-orange-500"
                     />
                 </div>
@@ -151,7 +151,7 @@ export default function DashboardPage({
                     {/* Pegawai by Devisi */}
                     <Card>
                         <CardHeader>
-                            <CardTitle>Pegawai berdasarkan Devisi</CardTitle>
+                            <CardTitle>Pegawai berdasarkan Divisi</CardTitle>
                             <CardDescription>Distribusi per divisi</CardDescription>
                         </CardHeader>
                         <CardContent>
@@ -184,8 +184,8 @@ export default function DashboardPage({
                 {/* Devisi List */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>Daftar Devisi</CardTitle>
-                        <CardDescription>Semua divisi dalam perusahaan ini</CardDescription>
+                        <CardTitle>Daftar Divisi</CardTitle>
+                        <CardDescription>Semua divisi dalam instansi ini</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -225,7 +225,7 @@ export default function DashboardPage({
                                 <TableRow>
                                     <TableHead>Nama</TableHead>
                                     <TableHead>NIP</TableHead>
-                                    <TableHead>Devisi</TableHead>
+                                    <TableHead>Divisi</TableHead>
                                     <TableHead>Jabatan</TableHead>
                                     <TableHead>Tipe</TableHead>
                                 </TableRow>

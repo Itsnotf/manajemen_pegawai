@@ -74,7 +74,7 @@ export default function DevisiCreatePage({ instansi, devisis }: Props) {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="devisi_id">Devisi</Label>
+                                <Label htmlFor="devisi_id">Divisi</Label>
                                 <Select
                                     name="devisi_id"
                                     required

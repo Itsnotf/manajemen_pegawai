@@ -32,7 +32,7 @@ export function AppSidebarPerusahaan({ perusahaanId }: { perusahaanId?: string |
 
     const strukturManagement: NavItem[] = [
         {
-            title: 'Devisi',
+            title: 'Divisi',
             href: `/dashboard-perusahaan/${perusahaanId}/devisi`,
             icon: Building2,
             permissions: ['devisi index'],
