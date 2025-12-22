@@ -64,6 +64,7 @@ class DokumenController extends Controller
         }
 
         $data['pegawai_id'] = $pegawaiId;
+        $data['instansi_id'] = $perusahaanId;
         Dokumen::create($data);
         return redirect()
             ->route('perusahaan.dashboard.pegawai.dokumen', ['perusahaanId' => $perusahaanId, 'pegawaiId' => $pegawaiId])
