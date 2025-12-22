@@ -22,7 +22,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "devisi_id"     => "required|exists:divisis,id",
+            "divisi_id"     => "required|exists:divisis,id",
             "jabatan_id"    => "required|exists:jabatans,id",
             "nama_pegawai"  => "required|string|max:255",
             "nip"           => "required|digits_between:8,16",
