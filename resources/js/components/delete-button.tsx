@@ -33,7 +33,7 @@ export default function DeleteButton({ id, featured}: { id: number , featured: s
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button variant="outline" size="sm" className="hover:bg-red-200 hover:text-red-600"><Trash/></Button>
+                <Button variant="outline" size="sm" className="border-destructive/40 bg-destructive/10 text-destructive hover:bg-destructive/20 hover:text-destructive"><Trash/></Button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>

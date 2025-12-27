@@ -113,7 +113,7 @@ export default function DevisiPage({ instansi , jabatans, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan/${d.id}/edit`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="actionEdit" size="sm">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>

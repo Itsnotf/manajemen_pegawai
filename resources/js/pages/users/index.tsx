@@ -109,7 +109,7 @@ export default function UserPage({ users, filters, flash }: Props) {
                                         <Tooltip>
                                             <TooltipTrigger>
                                                 <Link href={`/users/${user.id}/edit`}>
-                                                    <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground"> <Edit2Icon /></Button>
+                                                    <Button variant="actionEdit" size="sm"> <Edit2Icon /></Button>
                                                 </Link>
                                             </TooltipTrigger>
                                             <TooltipContent>

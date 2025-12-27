@@ -130,7 +130,7 @@ export default function PegawaiDokumenPage({ instansi, dokumens, filters = {}, f
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.pegawai_id}/dokumen/${d.id}/edit`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="actionEdit" size="sm">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>

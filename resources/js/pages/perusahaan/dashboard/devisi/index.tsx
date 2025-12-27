@@ -114,7 +114,7 @@ export default function DivisiPage({ instansi ,perusahaanId, divisis, filters = 
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={divisi.edit({ perusahaanId: d.instansi_id, devisiId: d.id })}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="actionEdit" size="sm">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>

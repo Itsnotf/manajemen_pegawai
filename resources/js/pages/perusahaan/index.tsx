@@ -112,7 +112,7 @@ export default function PerusahaanPage({ perusahaans, filters, flash }: Props) {
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${perusahaan.id}`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="action" size="sm">
                                                             <Building />
                                                         </Button>
                                                     </Link>
@@ -124,7 +124,7 @@ export default function PerusahaanPage({ perusahaans, filters, flash }: Props) {
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/perusahaan/${perusahaan.id}/edit`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="actionEdit" size="sm">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>

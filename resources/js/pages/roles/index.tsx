@@ -97,7 +97,7 @@ export default function RolePage({ roles, filters, flash }: Props) {
                                         <Tooltip>
                                             <TooltipTrigger>
                                                 <Link href={`/roles/${role.id}/edit`}>
-                                                    <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                    <Button variant="actionEdit" size="sm">
                                                         <Edit2Icon />
                                                     </Button>
                                                 </Link>

@@ -123,7 +123,7 @@ export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/dokumen`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="action" size="sm">
                                                             <File />
                                                         </Button>
                                                     </Link>
@@ -135,7 +135,7 @@ export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/pribadi`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="action" size="sm">
                                                             <FileUser />
                                                         </Button>
                                                     </Link>
@@ -147,7 +147,7 @@ export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/edit`}>
-                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
+                                                        <Button variant="actionEdit" size="sm">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>
