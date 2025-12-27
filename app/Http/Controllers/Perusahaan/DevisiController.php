@@ -104,7 +104,7 @@ class DevisiController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(string $perusahaanId, string $devisiId)
+    public function destroy(string $perusahaanId, string $devisiId)
     {
         $devisi = Divisi::findOrFail($devisiId);
         $devisi->delete();

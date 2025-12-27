@@ -47,20 +47,20 @@ export default function PerusahaanEditPage({ perusahaans }: Props) {
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="nama_perusahaan">Nama Perusahaan</Label>
+                                <Label htmlFor="nama_instansi">Nama instansi</Label>
                                 <Input
-                                    id="nama_perusahaan"
+                                    id="nama_instansi"
                                     type="text"
                                     required
                                     autoFocus
                                     tabIndex={1}
-                                    autoComplete="nama_perusahaan"
+                                    autoComplete="nama_instansi"
                                     defaultValue={perusahaans.nama_instansi}
-                                    name="nama_perusahaan"
-                                    placeholder="Nama Perusahaan"
+                                    name="nama_instansi"
+                                    placeholder="Nama Instansi"
                                 />
                                 <InputError
-                                    message={errors.nama_perusahaan}
+                                    message={errors.nama_instansi}
                                     className="mt-2"
                                 />
                             </div>
@@ -97,15 +97,15 @@ export default function PerusahaanEditPage({ perusahaans }: Props) {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="alamat_perusahaan">Alamat</Label>
+                                <Label htmlFor="alamat_instansi">Alamat</Label>
                                 <Textarea
-                                    id="alamat_perusahaan"
-                                    name="alamat_perusahaan"
-                                    placeholder="Masukkan alamat perusahaan"
+                                    id="alamat_instansi"
+                                    name="alamat_instansi"
+                                    placeholder="Masukkan alamat instansi"
                                     defaultValue={perusahaans.alamat_instansi}
                                     className='min-h-36'
                                 />
-                                <InputError message={errors.alamat_perusahaan} />
+                                <InputError message={errors.alamat_instansi} />
                             </div>
 
                             <div className='space-x-2'>

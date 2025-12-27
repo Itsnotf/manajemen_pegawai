@@ -58,7 +58,7 @@ export default function DivisiPage({ instansi ,perusahaanId, divisis, filters = 
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        router.get(`/dashboard-perusahaan/${perusahaanId}/divisi`, { search }, { preserveState: true });
+        router.get(`/dashboard-perusahaan/${perusahaanId}/devisi`, { search }, { preserveState: true });
     };
 
     return (

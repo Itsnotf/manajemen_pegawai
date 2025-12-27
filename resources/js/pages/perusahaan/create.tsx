@@ -91,14 +91,14 @@ export default function PerusahaanCreatePage({ }: Props) {
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="alamat_perusahaan">Alamat</Label>
+                                <Label htmlFor="alamat_instansi">Alamat</Label>
                                 <Textarea
-                                    id="alamat_perusahaan"
-                                    name="alamat_perusahaan"
+                                    id="alamat_instansi"
+                                    name="alamat_instansi"
                                     placeholder="Masukkan alamat perusahaan"
                                     className='min-h-36'
                                 />
-                                <InputError message={errors.alamat_perusahaan} />
+                                <InputError message={errors.alamat_instansi} />
                             </div>
 
                             <div className='space-x-2'>

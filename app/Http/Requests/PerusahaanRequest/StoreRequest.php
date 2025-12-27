@@ -24,7 +24,6 @@ class StoreRequest extends FormRequest
         return [
             "nama_perusahaan"=> "required_without:nama_instansi|string|max:255",
             "nama_instansi"=> "required_without:nama_perusahaan|string|max:255",
-            "alamat_perusahaan"=> "required_without:alamat_instansi|string|max:255",
             "alamat_instansi"=> "required_without:alamat_perusahaan|string|max:255",
             "email"=> "required|email|max:255",
             "telepon"=> "required",
