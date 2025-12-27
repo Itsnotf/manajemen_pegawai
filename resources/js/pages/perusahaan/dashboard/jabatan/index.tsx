@@ -113,7 +113,7 @@ export default function DevisiPage({ instansi , jabatans, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/jabatan/${d.id}/edit`}>
-                                                        <Button variant="outline" size="sm" className='hover:bg-blue-200 hover:text-blue-600'>
+                                                        <Button variant="outline" size="sm" className="hover:bg-primary/20 hover:text-foreground">
                                                             <Edit2Icon />
                                                         </Button>
                                                     </Link>
@@ -141,7 +141,7 @@ export default function DevisiPage({ instansi , jabatans, filters = {}, flash }:
                         <Link
                             key={i}
                             href={link.url ?? '#'}
-                            className={`px-3 py-1 flex justify-center items-center border rounded-md ${link.active ? 'bg-black text-white text-sm' : 'text-sm'}`}
+                            className={`px-3 py-1 flex justify-center items-center border rounded-md ${link.active ? 'bg-primary text-primary-foreground text-sm' : 'text-sm'}`}
                             dangerouslySetInnerHTML={{ __html: link.label }}
                         />
                     ))}

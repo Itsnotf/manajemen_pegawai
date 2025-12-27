@@ -87,7 +87,7 @@ export default function DokumenEditPage({ instansi, pegawai, dokumen }: Props) {
                                                     href={`/storage/${dokumen.file_dokumen}`}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="text-blue-600 hover:underline"
+                                                    className="text-primary hover:underline"
                                                 >
                                                     Lihat File
                                                 </a>

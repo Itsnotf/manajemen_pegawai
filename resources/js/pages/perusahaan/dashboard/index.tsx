@@ -89,28 +89,28 @@ export default function DashboardPage({
                         title="Total Pegawai"
                         value={statistics.totalPegawai}
                         description="Seluruh pegawai di perusahaan"
-                        color="text-blue-500"
+                        color="text-primary"
                     />
                     <StatCard
                         icon={Building2}
                         title="Total Divisi"
                         value={statistics.totalDevisi}
                         description="Jumlah divisi yang ada"
-                        color="text-green-500"
+                        color="text-primary"
                     />
                     <StatCard
                         icon={Briefcase}
                         title="Total Jabatan"
                         value={statistics.totalJabatan}
                         description="Posisi yang tersedia"
-                        color="text-purple-500"
+                        color="text-primary"
                     />
                     <StatCard
                         icon={TrendingUp}
                         title="Rasio Pegawai"
                         value={statistics.totalDevisi > 0 ? Math.round(statistics.totalPegawai / statistics.totalDevisi) : 0}
                         description="Pegawai per divisi"
-                        color="text-orange-500"
+                        color="text-primary"
                     />
                 </div>
 
@@ -131,7 +131,7 @@ export default function DashboardPage({
                                                 <p className="font-medium capitalize">{item.tipe_pegawai}</p>
                                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                                     <div
-                                                        className="bg-blue-500 h-2 rounded-full"
+                                                        className="bg-primary h-2 rounded-full"
                                                         style={{
                                                             width: `${(item.count / statistics.totalPegawai) * 100}%`,
                                                         }}
@@ -163,7 +163,7 @@ export default function DashboardPage({
                                                 <p className="font-medium">{item.devisi_name}</p>
                                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                                     <div
-                                                        className="bg-green-500 h-2 rounded-full"
+                                                        className="bg-primary h-2 rounded-full"
                                                         style={{
                                                             width: `${(item.count / statistics.totalPegawai) * 100}%`,
                                                         }}
@@ -241,8 +241,8 @@ export default function DashboardPage({
                                             <TableCell>
                                                 <span className={`px-2 py-1 rounded-full text-xs font-semibold ${
                                                     pegawai.tipe_pegawai === 'tetap'
-                                                        ? 'bg-green-100 text-green-800'
-                                                        : 'bg-yellow-100 text-yellow-800'
+                                                        ? 'bg-primary/20 text-foreground'
+                                                        : 'bg-primary/10 text-foreground'
                                                 }`}>
                                                     {pegawai.tipe_pegawai}
                                                 </span>

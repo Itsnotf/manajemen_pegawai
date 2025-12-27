@@ -92,7 +92,7 @@ export default function Dashboard({
                         title="Total Instansi"
                         value={statistics.totalInstansi}
                         description="Jumlah instansi aktif"
-                        color="text-blue-500"
+                        color="text-primary"
                     />
                     <StatCard
                         icon={Users}
@@ -134,7 +134,7 @@ export default function Dashboard({
                                                 <p className="font-medium">{item.nama_instansi}</p>
                                                 <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
                                                     <div
-                                                        className="bg-blue-500 h-2 rounded-full"
+                                                        className="bg-primary h-2 rounded-full"
                                                         style={{
                                                             width: `${(item.pegawai_count / (topPerusahaan[0]?.pegawai_count || 1)) * 100}%`,
                                                         }}
@@ -218,12 +218,12 @@ export default function Dashboard({
                                                 <TableCell>{perusahaan.email}</TableCell>
                                                 <TableCell>{perusahaan.telepon}</TableCell>
                                                 <TableCell className="text-center">
-                                                    <span className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">
+                                                    <span className="px-2 py-1 bg-primary/20 text-foreground rounded-full text-sm font-semibold">
                                                         {perusahaan.divisis_count}
                                                     </span>
                                                 </TableCell>
                                                 <TableCell className="text-center">
-                                                    <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                                                    <span className="px-2 py-1 bg-primary/20 text-foreground rounded-full text-sm font-semibold">
                                                         {perusahaan.pegawai_count}
                                                     </span>
                                                 </TableCell>
