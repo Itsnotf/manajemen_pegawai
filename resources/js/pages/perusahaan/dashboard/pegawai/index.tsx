@@ -123,7 +123,7 @@ export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/dokumen`}>
-                                                        <Button variant="action" size="sm">
+                                                        <Button variant="actionView" size="sm">
                                                             <File />
                                                         </Button>
                                                     </Link>
@@ -135,7 +135,7 @@ export default function PegawaiPage({ instansi, pegawais, filters = {}, flash }:
                                             <Tooltip>
                                                 <TooltipTrigger asChild>
                                                     <Link href={`/dashboard-perusahaan/${instansi.id}/pegawai/${d.id}/pribadi`}>
-                                                        <Button variant="action" size="sm">
+                                                        <Button variant="actionPrivate" size="sm">
                                                             <FileUser />
                                                         </Button>
                                                     </Link>

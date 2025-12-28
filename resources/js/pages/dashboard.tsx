@@ -175,7 +175,7 @@ export default function Dashboard({
                                                 </div>
                                             </div>
                                             <Link href={`/dashboard-perusahaan/${perusahaan.id}`}>
-                                                <Button variant="outline" size="sm">
+                                                <Button variant="actionView" size="sm">
                                                     Detail
                                                 </Button>
                                             </Link>
@@ -229,7 +229,7 @@ export default function Dashboard({
                                                 </TableCell>
                                                 <TableCell>
                                                     <Link href={`/dashboard-perusahaan/${perusahaan.id}`}>
-                                                        <Button variant="outline" size="sm">
+                                                        <Button variant="actionOpen" size="sm">
                                                             Buka
                                                         </Button>
                                                     </Link>

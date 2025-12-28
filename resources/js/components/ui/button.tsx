@@ -14,6 +14,12 @@ const buttonVariants = cva(
           "border border-border bg-accent text-foreground hover:bg-accent/80",
         actionEdit:
           "border border-yellow-400/40 bg-yellow-400/25 text-yellow-900 hover:bg-yellow-400/35 dark:border-yellow-300/40 dark:bg-yellow-300/15 dark:text-yellow-200 dark:hover:bg-yellow-300/25",
+        actionView:
+          "border border-green-400/40 bg-green-400/25 text-green-900 hover:bg-green-400/35 dark:border-green-300/40 dark:bg-green-300/15 dark:text-green-200 dark:hover:bg-green-300/25",
+        actionOpen:
+          "border border-amber-600/40 bg-amber-600/25 text-amber-900 hover:bg-amber-600/35 dark:border-amber-500/40 dark:bg-amber-500/15 dark:text-amber-100 dark:hover:bg-amber-500/25",
+        actionPrivate:
+          "border border-purple-400/40 bg-purple-400/25 text-purple-900 hover:bg-purple-400/35 dark:border-purple-300/40 dark:bg-purple-300/15 dark:text-purple-200 dark:hover:bg-purple-300/25",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:

@@ -200,7 +200,7 @@ export default function DashboardPage({
                                             Jabatan: {devisi.jabatan_count}
                                         </p>
                                         <Link href={`/dashboard-perusahaan/${instansi.id}/devisi`}>
-                                            <Button variant="outline" size="sm" className="mt-3 w-full">
+                                            <Button variant="actionView" size="sm" className="mt-3 w-full">
                                                 Lihat Detail
                                             </Button>
                                         </Link>
